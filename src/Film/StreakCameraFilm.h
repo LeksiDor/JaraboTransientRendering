@@ -78,8 +78,8 @@ protected:
 
 			int t = (int) (std::floor(x));
 
-			unsigned int init_t = std::max(0, t - half_size);
-			unsigned int end_t = std::min(t + half_size, int(m_time_resolution - 1));
+			unsigned int init_t = std::max<int>(0, t - half_size);
+			unsigned int end_t = std::min<int>(t + half_size, int(m_time_resolution - 1));
 
 			for (size_t i = init_t; i <= end_t; i++) {
 				samples.push_back(Real(i) + .5);
@@ -272,8 +272,8 @@ void StreakCameraFilm<D, Radiance>::advance_scanline()
 				m_available_slices_nsamples.begin()++, m_available_slices_nsamples.end());
 	}
 
-	m_first_available_slice = std::min(m_first_available_slice + 1, FTR::height - 1);
-	m_last_available_slice = std::min(m_last_available_slice + 1, FTR::height - 1);
+	m_first_available_slice = std::min<size_t>(m_first_available_slice + 1, FTR::height - 1);
+	m_last_available_slice = std::min<size_t>(m_last_available_slice + 1, FTR::height - 1);
 }
 
 template<unsigned D, class Radiance>

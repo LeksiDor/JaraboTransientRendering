@@ -124,7 +124,7 @@ namespace Probability
 		//Sets t_a and t_b to possible outcomes given the geometry.
 		void set_temporal_boundaries()
 		{
-			t_a = std::max(t_a, (l.length())*ec);
+			t_a = std::max<Real>(t_a, (l.length())*ec);
 		}
 
 		TimeLineToPoint(Real _t_a, Real _t_b, const VectorN<D> &_w, const VectorN<D> &_l, Real _eta = 1.0, Real _c = LIGHT_SPEED)
@@ -216,9 +216,9 @@ namespace Probability
 		// Sets t_a and t_b to possible outcomes given the geometry.
 		void set_temporal_boundaries()
 		{
-			if (r > modl) t_a = std::max(t_a,(static_cast<Real>(2.0)*r - modl)*ec);
-			else          t_a = std::max(t_a, modl*ec);
-			t_b = std::min(t_b,(static_cast<Real>(2.0)*r + modl)*ec);
+			if (r > modl) t_a = std::max<Real>(t_a,(static_cast<Real>(2.0)*r - modl)*ec);
+			else          t_a = std::max<Real>(t_a, modl*ec);
+			t_b = std::min<Real>(t_b,(static_cast<Real>(2.0)*r + modl)*ec);
 		}
 
 		TimeAngular( Real _t_a, Real _t_b, Real _r, Real _modl, Real _eta = 1.0, Real _c = LIGHT_SPEED) :

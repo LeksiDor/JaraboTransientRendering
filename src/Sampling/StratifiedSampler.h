@@ -27,6 +27,8 @@
 
 #include "Sampling/Sampler.h"
 
+
+
 class StratifiedSampler: public Sampler
 {
 	int current_x, current_y;
@@ -52,8 +54,8 @@ public:
 
         // Despite the RNG returning values in the [0, 1) range, sometimes
         // the result ends being (current + 1) due to rounding, so we clamp
-        Real pos_x = std::min(current_x + shift_x, limit_x);
-        Real pos_y = std::min(current_y + shift_y, limit_y);
+        Real pos_x = std::min<Real>(current_x + shift_x, limit_x);
+        Real pos_y = std::min<Real>(current_y + shift_y, limit_y);
 
         sample.position = Vector2(pos_x, pos_y);
 		sample.weight = 1.;

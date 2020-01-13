@@ -128,7 +128,7 @@ public:
 		const DistributionEntry* entry = std::lower_bound(&TDTR::m_data[0], &TDTR::m_data[m_N+1], xi,
 			[](const DistributionEntry& e, const Real& r) { return e.CDF < r; });
 
-		size_t idx = size_t(std::max(ptrdiff_t(0), entry - &TDTR::m_data[0] - 1));
+		size_t idx = size_t(std::max<size_t>(ptrdiff_t(0), entry - &TDTR::m_data[0] - 1));
 
 		Real f0 = TDTR::m_data[idx].pdf;
 

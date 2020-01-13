@@ -1053,7 +1053,7 @@ Radiance BidirectionalPathTracing<D, Radiance, RadianceAttenuation>::operator()(
 	Radiance reflected_radiance(0.);
 
 	// Preallocate a conservative amount of vertices
-    unsigned n_eye = std::min(m_max_path_size, (unsigned) (MAX_BPT_VERTICES));
+    unsigned n_eye = std::min<unsigned>(m_max_path_size, (unsigned) (MAX_BPT_VERTICES));
 	unsigned n_light = (!m_path_trace_only) ? n_eye : 0;
 
 	PathR eye_path(n_eye), light_path(n_light);
@@ -1103,7 +1103,7 @@ void BidirectionalPathTracing<D, Radiance, RadianceAttenuation>::operator()(cons
 	//Spectrum reflected_radiance(0.); // FIX
 	
 	// Preallocate a conservative amount of vertices
-    unsigned n_eye = std::min(m_max_path_size, (unsigned) (MAX_BPT_VERTICES));
+    unsigned n_eye = std::min<unsigned>(m_max_path_size, (unsigned) (MAX_BPT_VERTICES));
 	unsigned n_light = (!m_path_trace_only) ? n_eye : 0;
 
 	PathR eye_path(n_eye), light_path(n_light);

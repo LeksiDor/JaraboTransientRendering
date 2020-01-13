@@ -199,8 +199,8 @@ namespace PhaseFunction
 	{
 		Real epsilon1 = Random::StdRNG.next_real();
 
-		Real cos_theta = std::cos(std::min(2.*atan((1. - m_gY)*std::tan(M_PI_2*(1. - 2.*epsilon1))/(1. + m_gY)), 1.));
-		Real sin_theta = ((Random::StdRNG.next_int() % 2) == 1 ? 1. : -1.)*std::sqrt(std::max(0., 1. - cos_theta*cos_theta));
+		Real cos_theta = std::cos(std::min<Real>(2.*atan((1. - m_gY)*std::tan(M_PI_2*(1. - 2.*epsilon1))/(1. + m_gY)), 1.));
+		Real sin_theta = ((Random::StdRNG.next_int() % 2) == 1 ? 1. : -1.)*std::sqrt(std::max<Real>(0., 1. - cos_theta*cos_theta));
 		
 		Vector2 dir(sin_theta, cos_theta);
 		wo = dir.transform_matrix_to(Vector2(0., 1.), wi);

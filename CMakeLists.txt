@@ -6,14 +6,14 @@ if ("${CMAKE_BINARY_DIR}" STREQUAL "${PROJECT_SOURCE_DIR}")
   message (FATAL_ERROR "Source and build directories are the same.")
 endif ()
 
-# If we do not have C++11, don't bother
-include (CheckCXXCompilerFlag)
-
-check_cxx_compiler_flag ("-std=c++11" COMPILER_SUPPORTS_CXX11)
-
-if (NOT COMPILER_SUPPORTS_CXX11)
-    message (FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support")
-endif ()
+## If we do not have C++11, don't bother
+#include (CheckCXXCompilerFlag)
+#
+#check_cxx_compiler_flag ("-std=c++11" COMPILER_SUPPORTS_CXX11)
+#
+#if (NOT COMPILER_SUPPORTS_CXX11)
+#    message (FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support")
+#endif ()
 
 set (CMAKE_CXX_STANDARD          11)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)

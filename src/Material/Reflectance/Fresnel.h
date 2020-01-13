@@ -37,7 +37,7 @@ namespace Fresnel
 		Real m_n = n;
 		Real m_n2 = m_n*m_n;
 
-		Real costhita = std::min(dot_abs(omega_o, normal), Real(1.));
+		Real costhita = std::min<Real>(dot_abs(omega_o, normal), Real(1.));
 		Real sinthita = sqrt(Real(1.) - costhita*costhita);
 		Real tanthita = sinthita / costhita;
 
@@ -73,7 +73,7 @@ namespace Fresnel
 	{
 		Real m_n = n, m_n2 = n*n;
 
-		Real costhita = std::min(dot_abs(omega_o, normal), Real(1.));
+		Real costhita = std::min<Real>(dot_abs(omega_o, normal), Real(1.));
 		Real sinthita = sqrt(Real(1.) - costhita*costhita);
 		Real tanthita = sinthita / costhita;
 

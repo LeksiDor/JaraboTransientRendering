@@ -596,7 +596,7 @@ void stbiw__write_hdr_scanline(stbi__write_context *s, int width, int ncomp, uns
    scanlineheader[3] = (width&0x00ff);
 
    /* skip RLE for images too small or large */
-   if (width < 8 || width >= 32768) {
+   //if (width < 8 || width >= 32768) {
       for (x=0; x < width; x++) {
          switch (ncomp) {
             case 4: /* fallthrough */
@@ -615,12 +615,14 @@ void stbiw__write_hdr_scanline(stbi__write_context *s, int width, int ncomp, uns
          stbiw__linear_to_rgbe(rgbe, linear);
          s->func(s->context, rgbe, 4);
       }
-   } else {
+   
+   // For some reason RLE is not working for large images (code below) - Decoder is not compatible
+   /*} else {
       int c,r;
-      /* encode into scratch buffer */
+      // encode into scratch buffer 
       for (x=0; x < width; x++) {
          switch(ncomp) {
-            case 4: /* fallthrough */
+            case 4: // fallthrough 
             case 3: linear[2] = scanline[x*ncomp + 2];
                     linear[1] = scanline[x*ncomp + 1];
                     linear[0] = scanline[x*ncomp + 0];
@@ -642,7 +644,7 @@ void stbiw__write_hdr_scanline(stbi__write_context *s, int width, int ncomp, uns
 
       s->func(s->context, scanlineheader, 4);
 
-      /* RLE each component separately */
+      // RLE each component separately 
       for (c=0; c < 4; c++) {
          unsigned char *comp = &scratch[width*c];
 
@@ -679,7 +681,7 @@ void stbiw__write_hdr_scanline(stbi__write_context *s, int width, int ncomp, uns
             }
          }
       }
-   }
+   }*/
 }
 
 static int stbi_write_hdr_core(stbi__write_context *s, int x, int y, int comp, float *data)

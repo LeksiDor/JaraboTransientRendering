@@ -6,3 +6,5 @@ scenes/*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+/out/build/x64-Debug
+/.vs

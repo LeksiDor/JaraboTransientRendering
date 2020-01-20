@@ -1,0 +1,13 @@
+# Blender v2.78 (sub 0) OBJ File: 'cornell.blend'
+# www.blender.org
+mtllib cornell_tapa.mtl
+o Plane.002_Plane.006
+v -4.123796 -0.784086 5.207554
+v 4.123796 -0.784086 5.207554
+v -4.123796 6.944555 5.207554
+v 4.123796 6.944555 5.207554
+vn 0.0000 0.0000 -1.0000
+usemtl None
+s off
+f 3//1 2//1 1//1
+f 3//1 4//1 2//1
